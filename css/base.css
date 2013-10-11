@@ -26,15 +26,32 @@
     display: inline-block;
 }
 
-bold{
-    font-weight: bold;
-}
-
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, 
 code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, 
 dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, 
 tbody, tfoot, thead, tr, th, td{
     font-family: 'Open Sans', sans-serif;
+}
+
+p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary{
+    color: #444;
+    font-weight: normal;
+}
+
+.hidden{
+    display: none;
+}
+
+body{
+    line-height: 1.2em;
+    position: absolute;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+p{
+    margin: 5px 0 0 0;
+    text-indent: 30px;
 }
 
 button{
@@ -70,25 +87,8 @@ a:hover{
     color: #734D35;
 }
 
-time{
-    background-color: rgba(99, 135, 227, 0.3);
-    color: white;
-    padding: 3px 7px;
-    border-radius: 7px;
+bold{
     font-weight: bold;
-}
-
-div.footer a span{
-    font-weight: 300;
-}
-
-summary{
-    font-style: italic;
-}
-
-p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary{
-    color: #444;
-    font-weight: normal;
 }
 
 h1, h2, h3, h4, h5, h6, h7, article h2 a{
@@ -110,18 +110,6 @@ h3{
     font-weight: normal;
 }
 
-article h3{
-    margin: 0;
-}
-
-article .title{
-    margin: 0;
-}
-
-article #tags{
-    margin-top: 0;
-}
-
 h3 a{
     color: #444;
 }
@@ -135,507 +123,10 @@ ul{
     margin: 0;
 }
 
-#content ul, #content ol{
-    margin: 10px 0 10px 30px;
-}
-
-#content ol{
-    list-style: inside decimal;
-}
-
-#content img{
-    margin: 10px;
-}
-
-#content img.center{
-    display: flex;
-    margin: 0 auto;
-}
-
-#content img.right{
-    float:right;
-    margin-left: 30px;
-}
-
-#content img.left{
-    float: left;
-    margin-right: 30px;
-}
-
-p{
-    margin: 5px 0 0 0;
-    text-indent: 30px;
-}
-
-body{
-    line-height: 1.2em;
-    position: absolute;
-    font-size: 0.9em;
-    width: 100%;
-}
-
-.wrapper{
-    position: relative;
-    padding: 0;
-    text-align:center;
-    margin: 0 auto;
-    width: 96%;
-    margin-top: 10px;
-}
-
-.warning{ 
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.04) 25%, 
-                                        transparent 25%, 
-                                        transparent 50%, 
-                                        rgba(0, 0, 0, 0.04) 50%, 
-                                        rgba(0, 0, 0, 0.04) 75%, 
-                                        transparent 75%, 
-                                        transparent) repeat 0 0 / 50px 50px,
-                #ffe761;
-    position: fixed;
-    z-index: 20;
-    width: 100%;
-}
-
-.warning .close{
-    float: right;
-    margin: 5px;
-    opacity: 0.5;
-}
-
-.warning .close:hover{
-    opacity: 1;
-}
-
-.warning img{
-    width: 20px;
-}
-
-.warning p{
-    margin: 0 5px 0 15px;
-}
-
-#header{
-    position: relative;
-}
-
-canvas#logo h1{
-    font-family: Round;
-    font-size: 120px;
-    font-weight: normal;
-    margin: 70px 0 70px 25px;
-}
-
-div[role="navigation"]{
-    line-height: 1.5em;
-    font-size: 16px;
-    margin: 0;
-    background: #EF8E51;
-    position: static;
-    width: 100%;
-    z-index: 20;
-}
-
-div[role="navigation"] a{
-    color: white;
-    padding: 0;
-    display: block;
-}
-
-.pagination a.selected, .selected{
-    background-color: rgba(99, 135, 227, 0.9);
-}
-
-li[role="search"]{
-    color: white;
-}
-
-.edited{
-    background: #EDA476;
-}
-
-div[role="navigation"] a:hover{
-    color: white;
-    background: #734D35;
-}
-
-li[role="search"] form:hover{
-    cursor: text;
-}
-
-li[role="search"] input{
-    background: none;
-    border: none;
-    width: 55px;
-    color: white;
-    transition: width 0.5s;
-}
-
-li[role="search"] input:focus{
-    width: 150px;
-}
-
-div.contact{
-    display: block;
-    font-size: 20px;
-}
-
-div.contact ul{
-    list-style: none;
-}
-
-div.contact li{
-    display: inline;
-    padding: 0 5px;
-}
-
-div[role="navigation"] ul, footer ul{
-    text-align: center;
-    margin: 0 auto;
-    padding:0;
-    list-style: none;
-}
-
-.pagination ul{
-    margin: 0;
-    text-align: center;
-}
-
-.pagination a{
-    color: white;
-    background: rgba(99, 135, 227, 0.35);
-    padding: 2px 5px;
-    border-radius: 2px 0 2px 0;
-}
-
-.pagination a:hover{
-    background: #6387E3;
-}
-
-footer li, .pagination li{
-    display: inline;
-    padding-right: 5px;
-}
-
-div[role="main"]{
-    text-align: justify;
-}
-
-.title{
-    margin-bottom: 10px;
-    display: flex;
-    display: -webkit-flex;
-    flex-flow: row;
-    -webkit-flex-flow: row;
-    align-items: center;
-    -webkit-align-items: center;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
-}
-
-.title h1, .title h2{
-    margin: 0;
-}
-
-div[role="main"] summary{
-    clear: both;
-    margin-top: 5px;
-}
-
-#toc div{
-    position: static;
-    width: 100%;
-}
-
-#toc{
-    margin-bottom: 20px;
-}
-
-#toc ul{
-    margin-left: 10px;
-}
-
-#totoc{
-    font-size: 30px;
-    border-radius: 50px;
-    background: rgb(239, 142, 81);
-    box-shadow: 0 0 8px #fff inset;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    color: white;
-    opacity: 0.4;
-    z-index: 40;
-    padding: 15px;
-}
-
-#totoc:hover{
-    opacity: 1;
-}
-
-.related ul{
-    margin-left: 20px;
-}
-
-.related summary{
-    margin-left: 10px;
-}
-
-.related li:hover{
-    padding: 5px 15px 15px 10px;
-    margin-left: -13px;
-    border-radius: 5px;
-    border: 2px #eee dashed;
-}
-
-#tags{
-    margin: 10px 0 0;
-}
-
-#tags h5{
-    display: inline;
-    padding: 0;
-    margin: 0;
-}
-
-#tags ul{
-    display: inline;
-}
-
-#related-articles h5, #related-reports h5, #toc h5{
-    margin-bottom: 0;
-}
-
-#tags, #related-articles, #related-reports{
-    margin-bottom: 20px;
-}
-
-div.footer{
-    clear: both;
-    margin: 0;
-    text-align: left;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    justify-content: center;
-    -webkit-justify-content: center;
-    align-items: center;
-    -webkit-align-items: center;
-}
-
-div.footer a{
-    color: #444;
-    font-size: 13px;
-    text-align: left;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: row;
-    -webkit-flex-direction: row;
-    justify-content: center;
-    -webkit-justify-content: center;
-}
-
-div.footer a span{
-    width: 230px;
-    padding-left: 10px;
-    line-height: 1.2em;
-}
-
-div.footer a img{
-    height: 31px;
-}
-
-div.footer #powered{
-    height: 60px;
-    margin: 0 0 30px 0;
-}
-
-.hidden{
-    display: none;
-}
-
-.overlay{
-    background: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-}
-
-.pop-up{
-    z-index: 100;
-    position: absolute;
-    width: 300px;
-    background: white;
-    padding: 12px;
-    border-radius: 5px 0 5px 5px;
-    box-shadow: 0 0 5px #fff;
-}
-
-.pop-up input, .pop-up textarea{
-    width: 98%;
-    display: block;
-}
-
-@media all and (min-width: 500px){
-    div[role="navigation"]{
-        height: 26px;
-        position: fixed;
-    }
-
-    div[role="navigation"] li{
-        float: left;
-    }
-
-    div[role="navigation"] li[role="search"]{
-        float:right;
-    }
-
-    div[role="navigation"] ul{
-        text-align: left;
-    }
-
-    div[role="navigation"] a, div[role="navigation"] form{
-        padding: 3px 4px;
-        display: inline;
-    }
-    
-    .wrapper{
-        margin-top: 30px;
-        padding: 0 20px;
-    }
-
-    div.footer{
-        margin: 20px;
-    }
-
-    .pop-up{
-        width: 400px;
-    }
-}
-
-@media all and (min-width: 800px){
-    h2{
-        font-size: 1.7em;
-    }
-
-    h3{
-        font-size: 1.4em;
-    }
-
-    body, h5 {
-        line-height: 1.4em;
-        font-size: 1em;
-    }
-
-    h5{
-        font-size: 1.1em;
-    }
-
-    div[role="navigation"] ul{
-        width: 60%;
-    }
-    
-    div.contact{
-        display: inline-block;
-        font-size: 20px;
-        position: relative;
-        top: -40px;
-    }
-
-    div.contact li{
-        display: block;
-        padding: 0;
-    }
-
-    div.footer{
-        flex-direction: row;
-        -webkit-flex-direction: row;
-    }
-
-    div.footer #powered{
-        margin: 0 50px 0 0;
-    }
-}
-
-@media all and (min-width: 1025px){
-    .wrapper{
-        width: 86%;
-    }
-
-    div[role="main"] > .title, #content{
-        width: 61.13%;
-    }
-    
-    #toc{
-        float: right;
-        width: 35.19%;
-    }
-
-    #toc div{
-        position: fixed;
-        width: 30%;
-    }
-
-    #totoc{
-        display: none;
-    }
-}
-
-@media all and (min-width: 1700px){
-
-    #wrapperArticle{
-        width: 80%;
-    }
-
-    div[role="main"] > .title, #content{
-        width: 70.13%;
-    }
-
-    #toc{
-        width: 27.19%;
-    }
-
-    #toc ul{
-        width: 83%;
-    }
-    
-    div[role="navigation"] ul{
-        width: 50%;
-    }
-}
-
-/* loreg.css */
 .wrapper{
     margin-top : 0;
     width: 95%;
     position: static;
-}
-
-article{
-       text-align: center;
-}
-
-article h3{
-    margin: 3px 0;
-}
-
-h3, h4{
-    font-family: "Open Sans";
-}
-
-h4 span{
-    margin-left: 5px;
-    font-size: 0.9em;
-}
-
-h4{
-    font-size: 1.2em;
-    font-weight: normal;
 }
 
 .text{
@@ -753,23 +244,104 @@ h4{
     border: 2px dashed #CCC;
 }
 
+div.footer{
+    clear: both;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+div.footer a{
+    color: #444;
+    font-size: 13px;
+    text-align: left;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+div.footer a span{
+    width: 230px;
+    padding-left: 10px;
+    line-height: 1.2em;
+    font-weight: 300;
+}
+
+div.footer a img{
+    height: 31px;
+}
+
+div.footer #powered{
+    height: 60px;
+    margin: 0 0 30px 0;
+}
+
+@media all and (min-width: 500px){
+    .wrapper{
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
+    div.footer{
+        margin: 20px;
+    }
+}
+
 @media all and (min-width: 650px){
     #alternatives .text{
         text-align: left;
     }
-    
+
     #alternatives canvas{
         float: left;
         clear: both;
     }
 }
 
+@media all and (min-width: 800px){
+    h2{
+        font-size: 1.7em;
+    }
+
+    h3{
+        font-size: 1.4em;
+    }
+
+    body, h5 {
+        line-height: 1.4em;
+        font-size: 1em;
+    }
+
+    h5{
+        font-size: 1.1em;
+    }
+
+    div.footer{
+        flex-direction: row;
+        -webkit-flex-direction: row;
+    }
+
+    div.footer #powered{
+        margin: 0 50px 0 0;
+    }
+}
+
 @media all and (min-width: 880px){
     #developmentNation, #developmentProvinces{
-        background: url("../images/arrow.png") 70% 60% no-repeat;
+        background: url("/static/images/arrow.png") 70% 60% no-repeat;
         background-size: auto 250px;
     }
-    
+
     .left{
         float: left;
     }
@@ -777,38 +349,44 @@ h4{
     .right{
         float: right;
     }
-    
+
     .text{
         margin-bottom: 30px;
         text-align: left;
         margin-top: 20px;
         display: block;
     }
-    
+
     article canvas{
         display: block;
     }
-    
+
     #developmentNation .text{
         margin-top: 50px;
     }
-    
+
     #alternatives .text{
         display: inline;
         float: right;
         width: 400px;
     }
-    
+
     #alternatives form span{
         display: inline;
         width: 100%;
         position:relative;
         line-height: 1em;
     }
-    
+
     #alternatives select{
         margin-right: 20px;
         position: static;
+    }
+}
+
+@media all and (min-width: 1025px){
+    .wrapper{
+        width: 86%;
     }
 }
 
@@ -816,9 +394,9 @@ h4{
     .wrapper{
        width: 90%
     }
-    
+
     #developmentNation, #developmentProvinces{
-        background: url("../images/arrow.png") 60% 50% no-repeat;
+        background: url("/static/images/arrow.png") 60% 50% no-repeat;
         background-size: auto 350px;
     }
 }
