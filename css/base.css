@@ -33,7 +33,7 @@ tbody, tfoot, thead, tr, th, td{
     font-family: 'Open Sans', sans-serif;
 }
 
-p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary{
+p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary, .definition a:before, .definition a:after{
     color: #444;
     font-weight: normal;
 }
@@ -52,6 +52,11 @@ body{
 p{
     margin: 5px 0 0 0;
     text-indent: 30px;
+}
+
+blockquote, q{
+    display: block;
+    font-style: italic;
 }
 
 button{
@@ -79,7 +84,7 @@ textarea{
 
 a{
     text-decoration: none;
-    color: #EF8E51;
+    color: #ef7b32;
     cursor: pointer;
 }
 
@@ -124,7 +129,7 @@ ul{
 }
 
 .wrapper{
-    margin-top : 0;
+    margin: 0 auto;
     width: 95%;
     position: static;
 }
@@ -139,65 +144,102 @@ ul{
     color: #222;
 }
 
-.text i{
-    color: #AAA;
-    width: 15px;
+.text h4 span{
+    padding-left: 5px;
 }
 
-#help{
-    position: absolute;
-    top: 0;
-    left: -330px;
-    z-index: 100;
-    transition: left 2s;
+#definitions{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: center;
+    -webkit-justify-content: center;
 }
 
-#help.expanded{
-    left: 0;
-    transition: left 1s;
+#definitions .column{
+    width: 100%;
+    margin: 20px;
 }
 
-#help #content{
-    color: white;
-    padding: 20px;
-    position: fixed;
-    width: 300px;
-    text-align: left;
-    background: rgba(0,0,0,0.7);
+#definitions .definition{
+    background: #ccc;
+    text-align: justify;
+    padding: 3px;
+    margin: 10px 0;
+    overflow: hidden;
     cursor: pointer;
 }
 
-#help #eject{
-    color: white;
-    position: absolute;
-    font-size: 20px;
-    top: 50%;
-    left: 340px;
-    height: 30px;
-    width: 30px;
-    background: rgba(0,0,0,0.7);
-    transform: rotate(90deg);
+.definition p{
+    text-indent: 0;
+    text-margin: 4px;
 }
 
-#help #eject:hover, #help #content.selected, #help #eject.selected{
-    background: rgba(0,0,0,0.9);
+.definition a:before{
+    content: "(";
 }
 
-#eject i{
-    padding: 0 0 0 6px;
+.definition a:after{
+    content: ")";
 }
 
-#help #eject.expanded{
-    transform: rotate(-90deg);
+.definition a{
+    font-style: normal;
 }
 
-#title{
-    text-align: left;
+blockquote p{
+    text-margin: 0;
 }
 
-#title h1{
-    font-size: 4em;
-    color: #444;
+blockquote p:first-child:before{
+    content: open-quote;
+}
+
+blockquote p:last-child:after{
+    content: close-quote;
+}
+
+#definitions .definition:hover{
+    background: #bbb;
+}
+
+#definitions .definition:active{
+    background: #999;
+}
+
+#definitions h3{
+    padding-left: 8px;
+}
+
+/* For the transition i've to use max-height */
+#definitions .paragraph{
+    height: 100%;
+    text-indent: 0;
+    padding: 0 5px 0 5px;
+    max-height: 250px;
+    transition: max-height 2s;
+}
+
+#definitions #loreg .paragraph{
+    max-height: 420px;
+}
+
+#definitions #venecia .paragraph{
+    max-height: 460px;
+}
+
+#definitions #selectoral .paragraph{
+    max-height: 500px;
+}
+
+#definitions .closed, #definitions #loreg .closed, #definitions #selectoral .closed, #definitions #venecia .closed{
+    max-height: 0;
+    transition: max-height 2s;
+}
+
+.definition q{
+    margin-top: 5px;
 }
 
 #developmentNation, #developmentProvinces{
@@ -242,6 +284,36 @@ ul{
 
 #alternatives > div:hover{
     border: 2px dashed #CCC;
+}
+
+h2.bibliography{
+    margin-bottom: 20px;
+}
+
+ol.bibliography{
+    list-style: inside none;
+    counter-reset: item 0;
+}
+
+.bibliography li:target{
+    background: #FAFFAD;
+}
+
+.bibliography span{
+    color: #555;
+    position: absolute;
+    padding-left: 5px;
+}
+
+.bibliography span:before{
+    content: "[" counter(item) "] ";
+    counter-increment: item 1;
+}
+
+.bibliography li :nth-child(2){
+    padding-left: 40px;
+    text-indent: 0;
+    margin: 0;
 }
 
 div.footer{
@@ -338,7 +410,7 @@ div.footer #powered{
 
 @media all and (min-width: 880px){
     #developmentNation, #developmentProvinces{
-        background: url("/static/images/arrow.png") 70% 60% no-repeat;
+        background: url("../images/arrow.png") 70% 60% no-repeat;
         background-size: auto 250px;
     }
 
@@ -396,7 +468,7 @@ div.footer #powered{
     }
 
     #developmentNation, #developmentProvinces{
-        background: url("/static/images/arrow.png") 60% 50% no-repeat;
+        background: url("../images/arrow.png") 60% 50% no-repeat;
         background-size: auto 350px;
     }
 }

@@ -797,18 +797,7 @@ function hide_help(){
     get_results(2011, draw_it);
 })();
 
-// Overwrite base.js function
-function update_heights(){
-    var title = document.querySelector("#title"),
-        HEAD_HEIGHT = 0,
-        height = window.innerHeight;
-
-    content.style.height = height + "px";
-    title.style.height = (height - HEAD_HEIGHT) + "px";
-}
-
-/*
-//Setup for the help panel
+//Setup for the subsidy article
 (function(){
     var data = [31070496.76, 19656109.09, 2934549.29, 9119862.91, 601976.26, 3070876.45, 1050902.25, 860702.41,
                 191405.25, 180634.37, 561361.03, 122665.5, 55523.79],
@@ -821,7 +810,6 @@ function update_heights(){
         })(),
         pie = new RGraph.Bar("subsidy", data);
 
-    update_heights();
     pie.Set('labels', ["PP", "PSOE", "CiU", "IU-LV", "AMAIUR", "UPyD", "PNV", "ERC",
                        "BNG", "CC-NC-PNC", "FAC", "COMPROMIS-Q", "GBAI"])
        .Set('chart.colors', [ORANGE])
@@ -834,21 +822,3 @@ function update_heights(){
        .Set('chart.background.grid', false)
        .Draw();
 })();
-
-content.onmouseup = function(){
-    if(eject.classList.contains("rotated")){
-        hide_help();
-    }else{
-        show_help();
-    }
-}
-
-content.onmouseover = content.onmouseout = function(){
-    content.classList.toggle("selected");
-    eject.classList.toggle("selected");
-}
-
-window.onresize = function(){
-    update_heights();
-}*/
-
