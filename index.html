@@ -20,12 +20,12 @@
             </p>
         </div>
         <div class="wrapper">
-            <article id="title">
+            <section id="title">
 
-            </article>
+            </section>
 
-            <article>
-                <h2>Para que nos entendamos...</h2>
+            <section style="clear: both">
+                <h2>Para que nos entendamos</h2>
                 <div id="definitions">
                     <div id="column1" class="column">
                         <div id="circunscripcion" class="definition">
@@ -97,77 +97,145 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </section>
 
-            <article id="developmentNation" class="clearfix">
-                <div class="left">
-                    <div class="text">
-                        <h3 class="title">Elecciones del año</h3>
-                        <select class="year">
-                            <option value="2011">2011</option>
-                            <option value="2008">2008</option>
-                            <option value="2004">2004</option>
-                            <option value="2000">2000</option>
-                            <option value="1996">1996</option>
-                            <option value="1993">1993</option>
-                            <option value="1989">1989</option>
-                            <option value="1986">1986</option>
-                            <option value="1982">1982</option>
-                            <option value="1979">1979</option>
-                            <option value="1977">1977</option>
-                        </select>
-                    </div>
-                    <canvas class="congress"></canvas>
-                    <canvas class="pie" id="developmentNationPie" width=400 height=250></canvas>
-                </div>
-                <div class="right">
-                    <div class="text">
-                        <h4>Censo:<span class="census">--</span></h4>
-                        <h4 style="margin-bottom: 5px">Media de votos por escaño:<span class="average">--</span></h4>
-                        <h4>Partido:<span class="party">--</span></h4>
-                        <h4>Votos:<span class="votes">--</span></h4>
-                        <h4>Escaños:<span class="seats">--</span></h4>
-                        <h4>Votos por escaño:<span class="votesxseats">--</span></h4>
-                    </div>
-                    <canvas class="map"></canvas>
-                </div>
-            </article>
+            <section id="rules">
+                <h2>Cinco reglas fundamentales</h2>
+                <q>Las elecciones con arreglo a los principios comunes del patrimonio constitucional europeo, que son el fundamento de toda sociedad verdaderamente democrática, implican el respeto de cinco reglas fundamentales: el sufragio deberá ser <span>universal</span>, <span class="selected">igual</span>, <span>libre</span>, <span>secreto</span> y <span>directo</span>. Además, las elecciones deben ser periódicas. El conjunto de estos principios constituye el patrimonio electoral europeo. <a href="#bvenecia">Comisión de Venecia</a></q>
 
-            <article id="developmentProvinces" class="clearfix">
-                <div class="left">
-                    <div class="text">
-                        <h3 class="title">Elecciones del año</h3>
-                        <select class="year">
-                            <option value="2011">2011</option>
-                            <option value="2008">2008</option>
-                            <option value="2004">2004</option>
-                            <option value="2000">2000</option>
-                            <option value="1996">1996</option>
-                            <option value="1993">1993</option>
-                            <option value="1989">1989</option>
-                            <option value="1986">1986</option>
-                            <option value="1982">1982</option>
-                            <option value="1979">1979</option>
-                            <option value="1977">1977</option>
-                        </select>
-                        <h4>Censo:<span class="census">--</span></h4>
-                        <h4 style="margin-bottom: 5px">Media de votantes por escaño:<span class="average">--</span></h4>
-                    </div>
-                    <canvas class="map"></canvas>
-                </div>
-                <div class="right">
-                    <div class="text">
-                        <h4>Provincia:<span class="province">--</span></h4>
-                        <h4>Censo:<span class="pcensus">--</span></h4>
-                        <h4>Escaños:<span class="seats">--</span></h4>
-                        <h4>Votantes por escaño:<span class="votesxseats">--</span></h4>
-                    </div>
-                    <canvas class="congress"></canvas>
-                    <canvas class="pie" id="developmentProvincesPie" width=400 height=275></canvas>
-                </div>
-            </article>
+                <ul>
+                    <li><h3>Universal</h3> <q>todo ser humano tiene el derecho a emitir su voto y a presentarse como candidato.</q></li>
+                    <li class="selected"> <h3>Igual</h3> 
+                        <ul>
+                            <li><h4>Igual número de votos</h4> <q>Cada votante tiene derecho a un voto.</q></li>
+                            <li><h4>Igual poder de voto</h4> <q>Los escaños deberán repartirse por igual entre las circunscripciones.</q></li>
+                            <li><h4>Igualdad de oportunidad</h4> <q>Deberá garantizarse la igualdad de oportunidades entre los partidos y los candidatos.</q></li>
+                            <li><h4>Igualdad y minorías nacionales</h4> <q>Los partidos que representen a minorías nacional es deberán estar autorizados.</q></li>
+                            <li><h4>Igualdad y paridad de los sexos</h4> <q>Las reglas jurídicas que imponen un porcentaje mínimo de personas de cada sexo entre los candidatos, si tienen una base constitucional, no deberían considerarse contrarias al principio de la igualdad del sufragio.</q></li>
+                        </ul>
+                    </li>
+                    <li><h3>Libre</h3> <q>el votante es libre tanto de formarse su propia opinión como de expresarla libremente.</q></li>
+                    <li><h3>Secreto</h3> <q>se debe asegurar el secreto en el ejercicio del voto para garantizar la libre decisión del votante.</q></li>
+                    <li><h3>Directo</h3> <q>el voto debe ser efectuado por cada ciudadano de forma directa, sin intermediarios, porque cada miembro de la sociedad está capacitado para tomar sus propias decisiones de acuerdo con sus propias preferencias.</q></li>
+                </ul>
+            </section>
 
-            <article id="alternatives">
+            <section>
+                <h2>Pasemos a la práctica.</h2>
+
+                <p>Un sistema electoral traduce votos en escaños y según las cinco reglas fundamentales ésta traducción debe ser igualitaria de manera que se cumplan dos exigencias. La primera es que dos personas que vivan en diferentes provincias (ya que la circunscripción es provincial) tienen que tener el mismo <bold>poder de voto</bold>. La segunda es que dos formaciones políticas tienen que tener más o menos (con un 15% de desviación máxima según la <a href="#bvenecia">Comisión de Venecia</a>) los mismos escaños si han sido votados con la misma intensidad (<bold>igualdad de oportunidad</bold>).</p>
+                <p>Os animo a que comprobéis por vosotros mismos si éstas dos exigencias se cumplen.</p>
+
+                <p>En la primera sección podéis elegir varios grupos parlamentarios y comprobar si los votos por escaño que obtienen son los mismos (más o menos) o si difieren según la estructura de voto a nivel nacional (para eso está el mapa) o el número de votos.</p>
+
+                <p>Aviso para navegantes: tanto el diagrama de sectores como las cifras recojen la Abstención ya que considero que más de 10 millones de personas en las últimas elecciones merecen quedar reflejadas, llamadme loco (los votos en blanco también están, aunque algo escondidos).</p>
+
+                <section id="developmentNation" class="clearfix">
+                    <div class="left">
+                        <div class="text">
+                            <h3 class="title">Elecciones del año</h3>
+                            <select class="year">
+                                <option value="2011">2011</option>
+                                <option value="2008">2008</option>
+                                <option value="2004">2004</option>
+                                <option value="2000">2000</option>
+                                <option value="1996">1996</option>
+                                <option value="1993">1993</option>
+                                <option value="1989">1989</option>
+                                <option value="1986">1986</option>
+                                <option value="1982">1982</option>
+                                <option value="1979">1979</option>
+                                <option value="1977">1977</option>
+                            </select>
+                        </div>
+                        <canvas class="congress"></canvas>
+                        <canvas class="pie" id="developmentNationPie" width=400 height=250></canvas>
+                    </div>
+                    <div class="right">
+                        <div class="text">
+                            <h4>Censo:<span class="census">--</span></h4>
+                            <h4 style="margin-bottom: 5px">Media de votos por escaño:<span class="average">--</span></h4>
+                            <h4>Partido:<span class="party">--</span></h4>
+                            <h4>Votos:<span class="votes">--</span></h4>
+                            <h4>Escaños:<span class="seats">--</span></h4>
+                            <h4>Votos por escaño:<span class="votesxseats">--</span></h4>
+                        </div>
+                        <canvas class="map"></canvas>
+                    </div>
+                </section>
+
+                <p>En la segunda sección podéis escoger varias provincias españolas y comprobar si los votantes que un partido político necesita para formar un escaño son (más o menos) los mismos o si depende en gran medida del censo: los ciudadanos de provincias más pobladas tienen menos poder de voto que los ciudadanos de las provincias menos pobladas.</p>
+
+                <p>Notación: SR significa sobrerepresentación e indica que los votantes que necesita una formación política para formar escaño en la provincia estudiada son menores que la media a nivel nacional, es decir, cada ciudadano tiene más poder de voto que el ideal. Así mismo IR significa infrarepresentación e indica que un ciudadano tiene menos poder de voto que el ideal ya que su voto "decide" en menor medida qué parte de un escaño otrogar a una formación política.
+
+                <section id="developmentProvinces" class="clearfix">
+                    <div class="left">
+                        <div class="text">
+                            <h3 class="title">Elecciones del año</h3>
+                            <select class="year">
+                                <option value="2011">2011</option>
+                                <option value="2008">2008</option>
+                                <option value="2004">2004</option>
+                                <option value="2000">2000</option>
+                                <option value="1996">1996</option>
+                                <option value="1993">1993</option>
+                                <option value="1989">1989</option>
+                                <option value="1986">1986</option>
+                                <option value="1982">1982</option>
+                                <option value="1979">1979</option>
+                                <option value="1977">1977</option>
+                            </select>
+                            <h4>Censo:<span class="census">--</span></h4>
+                            <h4 style="margin-bottom: 5px">Media de votantes por escaño:<span class="average">--</span></h4>
+                        </div>
+                        <canvas class="map"></canvas>
+                    </div>
+                    <div class="right">
+                        <div class="text">
+                            <h4>Provincia:<span class="province">--</span></h4>
+                            <h4>Censo:<span class="pcensus">--</span></h4>
+                            <h4>Escaños:<span class="seats">--</span></h4>
+                            <h4>Votantes por escaño:<span class="votesxseats">--</span></h4>
+                        </div>
+                        <canvas class="congress"></canvas>
+                        <canvas class="pie" id="developmentProvincesPie" width=400 height=275></canvas>
+                    </div>
+                </section>
+            </section>
+
+            <section class="inv78">
+                <h2>El invierno del 78</h2>
+                <p>El 6 de Diciembre de 1978 la Constitución Española fue ratificada por el pueblo español para 23 días más tarde ser publicada en el Boletín Oficial del Estado. Entre sus 169 artículos, treinta de ellos tratan sobre las Cortes Generales y uno establece las guías maestras bajo las que la Ley Orgánica del Régimen Electoral General debe establecer el sistema electoral para el Congreso de los diputados.</p>
+
+                <article>
+                    <h3>Artículo 68 (extracto)</h3>
+                    <ol>
+                        <li>El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados, elegidos por sufragio universal, libre, igual, directo y secreto, en los términos que establezca la ley.</li>
+                        <li>La circunscripción electoral es la provincia. Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por un Diputado. La ley distribuirá el número total de Diputados, asignando una representación mínima inicial a cada circunscripción y distribuyendo los demás en proporción a la población.</li>
+                        <li>La elección se verificará en cada circunscripción atendiendo a criterios de representación proporcional.</li>
+                    </ol>
+                </article>
+
+                <p>Así mismo, la LOREG detalla el funcionamiento del sistema electoral cumpliendo las exigencias reflejadas en la Constitución.</p>
+
+                <article>
+                    <h3>Artículo 162</h3>
+                    <ol>
+                        <li>El Congreso está formado por 350 Diputados.</li>
+                        <li>A cada provincia le corresponde un mínimo inicial de dos Diputados. Las poblaciones de Ceuta y Melilla están representadas cada una de ellas por un Diputado.</li>
+                        <li>Los doscientos cuarenta y ocho Diputados restantes se distribuyen entre las provincias en proporción a su población [<em>Siguiendo el método D'Hont</em>] </li>
+                        <li>El Decreto de convocatoria debe especificar el número de Diputados a elegir en cada circunscripción, de acuerdo con lo dispuesto en este artículo.</li>
+                    </ol>
+                </article>
+
+                <p>Han sido numerosas las alternativas que se han propuesto para modificar el funcionamiento del sistema electoral, algunas de ellas exigían una modificación de la Constitución, pero muchas mejoran el sistema electoral sin modificarla; de éstas últimas presento algunas.</p>
+
+                <p>En la siguiente sección puedes comparar la representación parlamentaria bajo el sistema actual y bajo algunas alternativas que modifican el tamaño del Congreso, la fórmula electoral o la representación mínima por provincia. Una de éstas alternativas, que podrás encontrar con el nombre de UGR, cambia todos los parámetros y fue presentada en 2009 al Congreso por la Universidad Pública de Granada.</p>
+
+                <p>Te invito a que averigues si el sistema electoral actual es mejorable en base a la equidad comparándolo con las alternativas que he incluído.</p>
+            </section>
+
+            <section id="alternatives">
                 <form>
                     <span>
                         <label>Año</label>
@@ -232,11 +300,11 @@
                         <h4>Votos por escaño:<span class="votesxseat">--</span></h4>
                     </div>
                 </div>
-            </article>
+            </section>
 
-            <article>
+            <section>
                 <canvas id="subsidy" width=800 height=550></canvas>
-            </article>
+            </section>
 
             <h2 class="bibliography">Bibliografía</h2>
             <ol class="bibliography">

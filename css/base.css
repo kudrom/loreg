@@ -33,9 +33,10 @@ tbody, tfoot, thead, tr, th, td{
     font-family: 'Open Sans', sans-serif;
 }
 
-p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary, .definition a:before, .definition a:after{
+q, p, div, span, strong, mark, pre, input, textarea, h1, h2, h3, h4, h5, h6, h7, article h2 a, summary, .definition a:before, .definition a:after{
     color: #444;
     font-weight: normal;
+    text-align: justify;
 }
 
 .hidden{
@@ -51,7 +52,6 @@ body{
 
 p{
     margin: 5px 0 0 0;
-    text-indent: 30px;
 }
 
 blockquote, q{
@@ -107,6 +107,7 @@ h2, h3, h2 a{
 h2{
     font-size: 1.4em;
     text-align: left;
+    margin: 20px 0;
 }
 
 h3{
@@ -144,8 +145,82 @@ ul{
     color: #222;
 }
 
+.wrapper > section > *{
+    margin-left: 20px;
+}
+
+.wrapper > section > h2{
+    margin-left: 0;
+}
+
 .text h4 span{
     padding-left: 5px;
+}
+
+#rules span{
+    cursor: pointer;
+}
+
+#rules span.selected, #rules span:hover{
+    padding: 0 5px;
+    border-radius: 4px;
+}
+
+#rules span:hover{
+    background: #EAD9CE;
+}
+
+#rules span.selected{
+    background: #EDB795;
+}
+
+#rules span.selected:hover{
+    background: #EF7B32;
+}
+
+#rules ul{
+    list-style: none;
+    position: relative;
+}
+
+#rules > ul{
+    margin-top: 20px;
+}
+
+#rules h3{
+    display: inline;
+    margin: 0;
+    padding-left: 5px;
+    min-width: 130px;
+}
+
+#rules h4{
+    display: inline;
+}
+
+#rules > ul > li{
+    padding: 10px 10px 10px 0;
+    margin: 2px 0;
+    display: flex;
+    flex-direction: row;
+    background: #EAD9CE;
+    cursor: pointer;
+}
+
+#rules > ul > li:hover{
+    background: #EDB795;
+}
+
+#rules > ul > li.selected{
+    background: #EF7B32;
+}
+
+#rules .selected q, #rules .selected ul{
+    display: inline;
+}
+
+#rules ul q, #rules ul ul{
+    display: none;
 }
 
 #definitions{
@@ -159,7 +234,7 @@ ul{
 
 #definitions .column{
     width: 100%;
-    margin: 20px;
+    margin: 0 40px 0 0;
 }
 
 #definitions .definition{
@@ -172,15 +247,14 @@ ul{
 }
 
 .definition p{
-    text-indent: 0;
     text-margin: 4px;
 }
 
-.definition a:before{
+.definition a:before, q a:before{
     content: "(";
 }
 
-.definition a:after{
+.definition a:after, q a:after{
     content: ")";
 }
 
@@ -215,7 +289,6 @@ blockquote p:last-child:after{
 /* For the transition i've to use max-height */
 #definitions .paragraph{
     height: 100%;
-    text-indent: 0;
     padding: 0 5px 0 5px;
     max-height: 250px;
     transition: max-height 2s;
@@ -242,6 +315,20 @@ blockquote p:last-child:after{
     margin-top: 5px;
 }
 
+.inv78 p{
+}
+
+.inv78 article{
+    margin: 20px 0 20px 20px;
+    padding: 4px 10px 10px;
+    background: #EAD9CE;
+}
+
+.inv78 ol{
+    list-style: decimal inside;
+    margin-left: 15px;
+}
+
 #developmentNation, #developmentProvinces{
     width: 100%;
 }
@@ -252,8 +339,9 @@ blockquote p:last-child:after{
 }
 
 #alternatives form{
+    margin-top: 20px;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #alternatives form span{
@@ -276,7 +364,7 @@ blockquote p:last-child:after{
 }
 
 #alternatives > div{
-    width: 100%;
+    width: 95%;
     border: 2px dashed #EEE;
     padding: 5px;
     border-radius: 15px;
@@ -312,7 +400,6 @@ ol.bibliography{
 
 .bibliography li :nth-child(2){
     padding-left: 40px;
-    text-indent: 0;
     margin: 0;
 }
 
@@ -425,11 +512,10 @@ div.footer #powered{
     .text{
         margin-bottom: 30px;
         text-align: left;
-        margin-top: 20px;
         display: block;
     }
 
-    article canvas{
+    section canvas{
         display: block;
     }
 

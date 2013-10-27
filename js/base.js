@@ -3,6 +3,8 @@ var wrapper = document.querySelector(".wrapper"),
     warning = document.querySelector(".warning"),
     close = document.querySelector(".close"),
     definitions = document.querySelectorAll(".definition"),
+    rules = document.querySelectorAll("#rules > ul > li"),
+    wordRules = document.querySelectorAll("#rules span"),
     ORANGE = "#EF8E51",
     BLUE = "#829FE9",
     map,
@@ -194,6 +196,41 @@ for(i = 0; i < definitions.length; i++){
     }
 }
 
+/* Setup for the five fundamental rules */
+for(i = 0; i < rules.length; i++){
+    rules[i].onclick = function(e){
+        var index = -1;
+        for(var i = 0; i < rules.length; i++){
+            if(rules[i] == e.currentTarget){
+                index = i;
+            }
+            rules[i].classList.remove("selected");
+            wordRules[i].classList.remove("selected");
+        }
+        e.currentTarget.classList.add("selected");
+        if(index !== -1){
+            wordRules[index].classList.add("selected");
+        }
+    }
+}
+
+for(i = 0; i < wordRules.length; i++){
+    wordRules[i].onclick = function(e){
+        var index = -1;
+        for(var i = 0; i < wordRules.length; i++){
+            if(wordRules[i] == e.currentTarget){
+                index = i;
+            }
+            wordRules[i].classList.remove("selected");
+            rules[i].classList.remove("selected");
+        }
+        e.currentTarget.classList.add("selected");
+        if(index !== -1){
+            rules[index].classList.add("selected");
+        }
+    }
+}
+
 /* Setup for the graphics */
 // Load geo data and construct the map
 (function (){
@@ -202,6 +239,7 @@ for(i = 0; i < definitions.length; i++){
     http_provinces.onreadystatechange = function(){
         if(http_provinces.readyState === 4 && http_provinces.status === 200){
             map = new Map(JSON.parse(http_provinces.responseText), max_min_coords);
+            begin_setup();
         }
     }
     http_provinces.open("GET", "provincias/provincias.json", true);
@@ -220,8 +258,14 @@ for(i = 0; i < definitions.length; i++){
     }
 })();
 
+// To avoid map == undefined
+function begin_setup(){
+    setup_development();
+    setup_development2();
+    setup_alternatives();
+}
 // Setup the first part of the development section
-(function (){
+function setup_development(){
     var canvas_map = document.querySelector("#developmentNation .map"),
         canvas_congress = document.querySelector("#developmentNation .congress"),
         pie = pies[0],
@@ -397,10 +441,10 @@ for(i = 0; i < definitions.length; i++){
 
     // Initialize the canvases with the latest elections
     get_results(2011, draw_it);
-})();
+}
 
 // Setup for the second part of the development section
-(function (){
+function setup_development2(){
     var canvas_map = document.querySelector("#developmentProvinces .map"),
         canvas_congress = document.querySelector("#developmentProvinces .congress"),
         pie = pies[1],
@@ -552,10 +596,10 @@ for(i = 0; i < definitions.length; i++){
         });
         draw_it(2011);
     });
-})();
+}
 
 // Setup for the alternatives section
-(function(){
+function setup_alternatives(){
     var canvas_before = document.querySelector("#alternatives canvas.before"),
         canvas_after = document.querySelector("#alternatives canvas.after"),
         layerBefore = layers[2],
@@ -877,7 +921,7 @@ for(i = 0; i < definitions.length; i++){
         fill_text(seat.color);
     })
     get_results(2011, draw_it);
-})();
+}
 
 //Setup for the subsidy article
 (function(){
