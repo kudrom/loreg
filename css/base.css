@@ -157,6 +157,30 @@ ul{
     padding-left: 5px;
 }
 
+#title{
+    display: flex;
+    background: radial-gradient(ellipse at center, hsl(0,0%,29%) 0%,hsl(0,0%,6%) 100%);
+}
+
+#title div{
+    width: 50%;
+    margin: auto auto;
+}
+#title *{
+    font-family: 'Fauna One';
+    font-size: 15px;
+    line-height: 1.23em;
+}
+
+#title p{
+    color: white;
+    text-shadow: 2px 2px 5px #777;
+}
+
+#title a:hover{
+    color: #FA782A;
+}
+
 #rules span{
     cursor: pointer;
 }
@@ -372,6 +396,18 @@ blockquote p:last-child:after{
 
 #alternatives > div:hover{
     border: 2px dashed #CCC;
+}
+
+.subsidy{
+    width: 600px;
+    float: left;
+    margin: 10px 20px 0 0;
+}
+
+.subsidy h6{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 h2.bibliography{

@@ -1,6 +1,7 @@
 // Global variables
 var wrapper = document.querySelector(".wrapper"),
     warning = document.querySelector(".warning"),
+    title = document.querySelector("#title"),
     close = document.querySelector(".close"),
     definitions = document.querySelectorAll(".definition"),
     rules = document.querySelectorAll("#rules > ul > li"),
@@ -160,6 +161,12 @@ function hide_help(){
 
 /***********************************  SETUP  **********************************/
 
+/* Setup the title */
+function update_heights(){
+    title.style.height = window.innerHeight > 200 ? window.innerHeight + "px" : "200px";
+}
+window.onresize = update_heights;
+update_heights();
 
 /* Setup for the warnings */
 function isCanvasSupported(){
@@ -172,10 +179,10 @@ function showWarning(){
     warning.classList.remove("hidden");
     nav.style.marginTop = warning.offsetHeight + 'px';
     wrapper.style.marginTop = (30 + warning.offsetHeight) + 'px';
-    window.onresize = function(){
+    /*window.onresize = function(){
         nav.style.marginTop = warning.offsetHeight + 'px';
         wrapper.style.marginTop = (30 + warning.offsetHeight) + 'px';
-    }
+    }*/
 }
 
 function closeWarning(){
@@ -187,7 +194,6 @@ function closeWarning(){
 if(!isCanvasSupported()){
     showWarning();
 }
-
 
 /* Setup for the definitions */
 for(i = 0; i < definitions.length; i++){
@@ -264,6 +270,7 @@ function begin_setup(){
     setup_development2();
     setup_alternatives();
 }
+
 // Setup the first part of the development section
 function setup_development(){
     var canvas_map = document.querySelector("#developmentNation .map"),
