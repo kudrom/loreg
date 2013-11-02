@@ -34,6 +34,19 @@ var wrapper = document.querySelector(".wrapper"),
 
 
 // *************************** COMMON FUNCTIONS *******************************
+// Send mail
+function send_mail(message){
+    var http_request = new XMLHttpRequest();
+    var mensaje = document.querySelector("#mensaje").value;
+    http_request.onreadystatechange = function(){
+        if(http_request.readyState === 4 && http_request.status === 200){
+            console.log("enviado");
+        }
+    }
+    http_request.open("POST", "send-mail.php", true);
+    http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    http_request.send("mensaje=" + mensaje);
+}
 //Transforms the coordinates of the dom element into the internal canvas
 function windowToCanvas(x, y, canvas){
     var bbox = canvas.getBoundingClientRect();
@@ -161,6 +174,9 @@ function hide_help(){
 
 /***********************************  SETUP  **********************************/
 
+/* Setup the mail */
+document.querySelector("button[type=submit]").onmouseup = send_mail;
+
 /* Setup the title */
 function update_heights(){
     title.style.height = window.innerHeight > 200 ? window.innerHeight + "px" : "200px";
@@ -174,25 +190,12 @@ function isCanvasSupported(){
       return !!(elem.getContext && elem.getContext('2d'));
 }
 
-function showWarning(){
-    close.onclick = closeWarning;
-    warning.classList.remove("hidden");
-    nav.style.marginTop = warning.offsetHeight + 'px';
-    wrapper.style.marginTop = (30 + warning.offsetHeight) + 'px';
-    /*window.onresize = function(){
-        nav.style.marginTop = warning.offsetHeight + 'px';
-        wrapper.style.marginTop = (30 + warning.offsetHeight) + 'px';
-    }*/
-}
-
-function closeWarning(){
-    nav.style.marginTop = 0;
-    wrapper.style.marginTop = '30px';
-    warning.classList.add("hidden");
-}
-
 if(!isCanvasSupported()){
     showWarning();
+}
+
+warning.querySelector(".close").onmousedown = function(){
+    warning.classList.toggle("hidden");
 }
 
 /* Setup for the definitions */
