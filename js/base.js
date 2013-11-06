@@ -6,6 +6,17 @@ var wrapper = document.querySelector(".wrapper"),
     definitions = document.querySelectorAll(".definition"),
     rules = document.querySelectorAll("#rules > ul > li"),
     wordRules = document.querySelectorAll("#rules span"),
+    columns = document.querySelectorAll(".column"),
+    configuration = [],
+    loreg = document.querySelector("#loreg"),
+    circunscripcion = document.querySelector("#circunscripcion"),
+    selectoral = document.querySelector("#selectoral"),
+    felectoral = document.querySelector("#felectoral"),
+    consejo = document.querySelector("#consejo"),
+    cortes = document.querySelector("#cortes"),
+    escanyo = document.querySelector("#escanyo"),
+    osce = document.querySelector("#osce"),
+    venecia = document.querySelector("#venecia"),
     ORANGE = "#EF8E51",
     BLUE = "#829FE9",
     map,
@@ -34,7 +45,7 @@ var wrapper = document.querySelector(".wrapper"),
 
 
 // *************************** COMMON FUNCTIONS *******************************
-// Send mail
+
 function send_mail(message){
     var http_request = new XMLHttpRequest();
     var mensaje = document.querySelector("#mensaje").value;
@@ -47,6 +58,7 @@ function send_mail(message){
     http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     http_request.send("mensaje=" + mensaje);
 }
+
 //Transforms the coordinates of the dom element into the internal canvas
 function windowToCanvas(x, y, canvas){
     var bbox = canvas.getBoundingClientRect();
@@ -198,11 +210,73 @@ warning.querySelector(".close").onmousedown = function(){
     warning.classList.toggle("hidden");
 }
 
-/* Setup for the definitions */
+/* Setup for the definitions handlers */
 for(i = 0; i < definitions.length; i++){
     definitions[i].onclick = function(e){
         e.currentTarget.children[1].classList.toggle("closed");
     }
+}
+
+/* Setup for the definitions columns */
+function update_definitions(){
+    var selector,
+        column,
+        aux;
+    if(window.matchMedia("all and (min-width: 1200px)").matches){
+        // Wide-screen layout
+        columns[1].classList.remove("hidden");
+        columns[2].classList.remove("hidden");
+        selector = 2;
+
+    }else if(window.matchMedia("all and (min-width: 800px)").matches){
+        // Stretch screen layout
+        columns[1].classList.remove("hidden");
+        columns[2].classList.add("hidden");
+        selector = 1;
+
+    }else{
+        // By default i choose the mobile layout
+        columns[1].classList.add("hidden");
+        columns[2].classList.add("hidden");
+        selector = 0;
+    }
+    // Iterate over the number of columns to populate configured in a layout
+    // The selector is equal to the number of columns per layout
+    for(var i = 0; i <= selector; i++){
+        // aux stores the children of a particular column of a particular layout
+        aux = configuration[selector][i];
+        column = columns[i];
+        while(column.firstChild !== null){
+            column.removeChild(column.firstChild);
+        }
+        for(var ii = 0; ii < aux.length; ii++){
+            column.appendChild(aux[ii]);
+        }
+    }
+}
+
+/* configuration:
+ *   -> Layout (1column, 2columns & 3columns)
+ *      -> Columns per layout
+ *          -> Definitions per column
+ */
+configuration.push([
+    [loreg, circunscripcion, selectoral, felectoral, consejo, cortes, escanyo, osce, venecia]
+]);
+configuration.push([
+    [circunscripcion, selectoral, consejo, venecia],
+    [loreg, felectoral, cortes, escanyo, osce]
+]);
+configuration.push([
+    [circunscripcion, consejo, escanyo, osce],
+    [loreg, felectoral, cortes],
+    [selectoral, venecia]
+]);
+update_definitions();
+
+window.onresize = function(){
+    update_definitions();
+    update_heights();
 }
 
 /* Setup for the five fundamental rules */

@@ -187,14 +187,20 @@ ul{
 }
 
 #title{
-    display: flex;
     background: radial-gradient(ellipse at center, hsl(0,0%,29%) 0%,hsl(0,0%,6%) 100%);
+    position: relative;
 }
 
-#title div{
-    width: 50%;
+#title > div{
+    display: flex;
+    height: 100%;
+}
+
+#title > div > div{
+    width: 40%;
     margin: auto auto;
 }
+
 #title *{
     font-family: 'Fauna One';
     font-size: 15px;
@@ -212,6 +218,21 @@ ul{
 
 #title a:hover{
     color: #FA782A;
+}
+
+#internet-free{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    opacity: 0.1;
+}
+
+#internet-free:hover{
+    opacity: 0.6;
+}
+
+#internet-free img{
+    width: 175px;
 }
 
 #rules span{
@@ -387,7 +408,7 @@ blockquote p:last-child:after{
 }
 
 #developmentNation, #developmentProvinces{
-    width: 100%;
+    width: 97%;
 }
 
 #developmentProvinces{
@@ -473,7 +494,7 @@ ol.bibliography{
 }
 
 #contact textarea{
-    width: 100%;
+    width: 95%;
     margin-top: 20px;
 }
 
@@ -623,6 +644,14 @@ div.footer #powered{
 }
 
 @media all and (min-width: 1200px){
+    #internet-free{
+        bottom: -12px;
+    }
+
+    #internet-free img{
+        width: 250px;
+    }
+
     .wrapper{
        width: 90%
     }
