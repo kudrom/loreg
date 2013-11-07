@@ -46,19 +46,6 @@ var wrapper = document.querySelector(".wrapper"),
 
 // *************************** COMMON FUNCTIONS *******************************
 
-function send_mail(message){
-    var http_request = new XMLHttpRequest();
-    var mensaje = document.querySelector("#mensaje").value;
-    http_request.onreadystatechange = function(){
-        if(http_request.readyState === 4 && http_request.status === 200){
-            console.log("enviado");
-        }
-    }
-    http_request.open("POST", "send-mail.php", true);
-    http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    http_request.send("mensaje=" + mensaje);
-}
-
 //Transforms the coordinates of the dom element into the internal canvas
 function windowToCanvas(x, y, canvas){
     var bbox = canvas.getBoundingClientRect();
@@ -185,9 +172,6 @@ function hide_help(){
 }
 
 /***********************************  SETUP  **********************************/
-
-/* Setup the mail */
-document.querySelector("button[type=submit]").onmouseup = send_mail;
 
 /* Setup the title */
 function update_heights(){
