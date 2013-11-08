@@ -677,8 +677,10 @@ function setup_alternatives(){
         size = document.querySelector("#alternatives .size"),
         minimum = document.querySelector("#alternatives .min");
 
-    // Update the canvases with the year selected
-    function draw_it(year){
+    // Update the canvases with the year selected. The semantics of update_after_canvas are
+    // a bit misleading because i've to add it later and the interface should stay clear.
+    // It's only called with update_after_canvas !== undefined in the get_alternatives function.
+    function draw_it(year, update_after_canvas){
         var results = cache_results[year],
             canvas_map = document.querySelector("#alternatives .map"),
             canvas_before = document.querySelector("#alternatives canvas.before"),
@@ -700,7 +702,19 @@ function setup_alternatives(){
         layerBefore.draw(canvas_before, results);
         layerAfter.draw(canvas_after, results);
 
-        get_alternatives();
+        if(update_after_canvas === undefined){
+            get_alternatives();
+        }
+    }
+
+    // Draw the congress with empty seats, called by get_alternatives
+    function draw_plain(){
+        var canvas_after = document.querySelector("#alternatives canvas.after"),
+            layerAfter = layers[3];
+
+        layerAfter.draw(canvas_after, {"Bloqueado": {n: 350, color: "#ccc"}});
+        unbind(canvas_after, "mousemove");
+        unbind(canvas_after, "mouseup");
     }
 
     // reset all the spans of the .text div excluding the census and averages
@@ -821,10 +835,22 @@ function setup_alternatives(){
     // Request with AJAX the alternative selected
     function get_alternatives(){
         var http_data = new XMLHttpRequest(),
+            canvas_after = document.querySelector("#alternatives canvas.after"),
+            layerAfter = layers[3],
             year = document.querySelector("#alternatives .year"),
             size = document.querySelector("#alternatives .size").value,
             alternative = get_alternative();
 
+        // Restore the handler events if they are disabled by draw_plain
+        if(canvas_after["onmousemove"] === null){
+            bind(canvas_after, "mousemove", layerAfter);
+            bind(canvas_after, "mouseup", layerAfter, function(seat){
+                var color = seat.color;
+                layerBefore.select_party(color, canvas_before.getContext("2d"));
+                layerBefore.selected = true;
+                fill_text(seat.color);
+            });
+        }
         if(!(alternative in cache_alternatives) || !(year in cache_alternatives[alternative])){
             // The results aren't in the cache
 
@@ -838,20 +864,39 @@ function setup_alternatives(){
                             cache_alternatives[alternative] = new Object();
                         }
                         cache_alternatives[alternative][year.value] = data;
-
-                        if(size == 400 || alternative === "ugr/"){
-                            update_400_seats(alternative, year.value)
-                        }else{
-                            update_350_seats(alternative, year.value)
-                        }
+                        update_seats();
                     }
                 }
                 http_data.open("GET", "alternativas/" + alternative + year.value + '.json', true);
                 http_data.send();
+            }else{
+                // Draw the congress "empty"
+                if(alternative === "ugr/"){
+                    draw_plain();
+                }else{
+                    draw_it(year.value, true);
+                }
             }
+        }else{
+            update_seats();
         }
 
     }
+
+    // Wrapper around the two update functions
+    function update_seats(){
+        var http_data = new XMLHttpRequest(),
+            year = document.querySelector("#alternatives .year"),
+            size = document.querySelector("#alternatives .size").value,
+            alternative = get_alternative();
+
+        if(size == 400 || alternative === "ugr/"){
+            update_400_seats(alternative, year.value)
+        }else{
+            update_350_seats(alternative, year.value)
+        }
+    }
+
     // Update the .after canvas when the alternative has 350 seats
     function update_350_seats(alternative, year){
         var results = cache_alternatives[alternative][year],
@@ -885,7 +930,7 @@ function setup_alternatives(){
         // Iterate through results to populate the aux structure
         for(var i = 0; i < keys.length; i++){
             key = keys[i];
-            if(results[key].hasOwnProperty("n")){
+           if(results[key].hasOwnProperty("n")){
                 // The party exists in the alternative
                 if(key in alternative_results){
                     n1 = alternative_results[key].n - results[key].n;
@@ -978,8 +1023,11 @@ function setup_alternatives(){
     bind(canvas_after, "mousemove", layerAfter);
     bind(canvas_before, "mouseup", layerBefore, function(seat){
         var color = seat.color;
-        layerAfter.select_party(color, canvas_after.getContext("2d"));
-        layerAfter.selected = true;
+        // Detect if the canvas after is in draw_plain mode
+        if(canvas_after["onmousemove"] !== null){
+            layerAfter.select_party(color, canvas_after.getContext("2d"));
+            layerAfter.selected = true;
+        }
         fill_text(seat.color);
     });
     bind(canvas_after, "mouseup", layerAfter, function(seat){

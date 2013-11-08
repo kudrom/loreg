@@ -20,6 +20,11 @@ function bind(canvas, event, cobj, caller){
     }
 }
 
+// Unbind a handler for a canvas
+function unbind(canvas, event){
+    canvas["on"+event] = null;
+}
+
 /* I've to supply this global manager because in the event binding 
  * (DOMElement.onmousedown) the handler (in this case globalEventHandler, see the function bind)
  * is binded with the DOM element that binded it and i can't access the 

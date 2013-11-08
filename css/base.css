@@ -112,8 +112,17 @@ ul{
     position: static;
 }
 
+.left, .right{
+    display: flex;
+    flex-direction: column;
+}
+
+.left canvas, .right canvas{
+    margin: auto;
+}
+
 .text{
-    margin: 10px 0;
+    margin: 10px auto;
 }
 
 .title{
@@ -171,13 +180,13 @@ ul{
 }
 
 #title > div > div{
-    width: 40%;
+    width: 80%;
     margin: auto auto;
 }
 
 #title *{
     font-family: 'Fauna One';
-    font-size: 15px;
+    font-size: 1em;
     line-height: 1.23em;
 }
 
@@ -286,7 +295,7 @@ ul{
 
 #definitions .column{
     width: 100%;
-    margin: 0 40px 0 0;
+    margin: 0 10px 0 0;
 }
 
 #definitions .definition{
@@ -427,9 +436,8 @@ blockquote p:last-child:after{
 }
 
 .subsidy{
-    width: 600px;
-    float: left;
     margin: 10px 20px 0 0;
+    width: 100%;
 }
 
 .subsidy h6{
@@ -465,6 +473,10 @@ ol.bibliography{
 .bibliography li :nth-child(2){
     padding-left: 40px;
     margin: 0;
+}
+
+#disqus_thread{
+    margin-top: 50px;
 }
 
 div.footer{
@@ -549,6 +561,11 @@ div.footer #powered{
         font-size: 1.1em;
     }
 
+    .subsidy{
+        float: left;
+        width: 500px;
+    }
+
     div.footer{
         flex-direction: row;
         -webkit-flex-direction: row;
@@ -560,16 +577,22 @@ div.footer #powered{
 }
 
 @media all and (min-width: 880px){
+    #title > div > div{
+        width: 60%;
+    }
+
     #developmentNation, #developmentProvinces{
         background: url("../images/arrow.png") 70% 60% no-repeat;
         background-size: auto 250px;
     }
 
     .left{
+        display: inline;
         float: left;
     }
 
     .right{
+        display: inline;
         float: right;
     }
 
@@ -625,10 +648,9 @@ div.footer #powered{
        width: 90%
     }
 
-    #contact{
-        width: 780px;
-        margin: 0 auto;
-    } 
+    #title > div > div{
+        width: 40%;
+    }
 
     #developmentNation, #developmentProvinces{
         background: url("../images/arrow.png") 60% 50% no-repeat;
